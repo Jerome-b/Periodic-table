@@ -1,0 +1,65 @@
+﻿th:nth-child(n) {
+    text-align: center;
+    border: hidden;
+    height: 50px;
+    width: 70px;
+}
+
+.table {
+    border-collapse: separate;
+    border-spacing: 7px 7px;
+    text-align: center;
+}
+
+.legend {
+    list-style: none;
+}
+
+    .legend li {
+        float: left;
+        margin-right: 35px;
+        margin-bottom: 10px;
+    }
+
+    .legend span {
+        border: 1px solid #ccc;
+        float: left;
+        width: 25px;
+        height: 25px;
+    }
+
+    .legend .nonmetal {
+        background-color: lightgreen;
+    }
+
+    .legend .alkali {
+        background-color: orangered;
+    }
+
+    .legend .alkaline {
+        background-color: peachpuff;
+    }
+
+    .legend .transition {
+        background-color: pink;
+    }
+
+    .legend .lanthanide {
+        background-color: lightgrey;
+    }
+
+    .legend .actinide {
+        background-color: violet;
+    }
+
+    .legend .posttransition {
+        background-color: mediumpurple;
+    }
+
+    .legend .metalloid {
+        background-color: darkgoldenrod;
+    }
+
+    .legend .noble {
+        background-color: lightskyblue;
+    }

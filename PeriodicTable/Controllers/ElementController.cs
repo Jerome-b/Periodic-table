@@ -9,13 +9,13 @@ using PeriodicTable.Model;
 namespace PeriodicTable.Controllers
 {
 
-    [Route("api/Book")]
+    [Route("api/Element")]
     [ApiController]
-    public class BookController : Controller
+    public class ElementController : Controller
     {
         private readonly ApplicationDbContext _db;
 
-        public BookController(ApplicationDbContext db)
+        public ElementController(ApplicationDbContext db)
         {
             _db = db;
         }
@@ -23,18 +23,18 @@ namespace PeriodicTable.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            return Json(new { data =await _db.Book.ToListAsync() });
+            return Json(new { data = await _db.Element.ToListAsync() });
         }
 
         [HttpDelete]
         public async Task<IActionResult> Delete(int id)
         {
-            var bookFromDb = await _db.Book.FirstOrDefaultAsync(u => u.Id == id);
-            if (bookFromDb == null)
+            var elementFromDb = await _db.Element.FirstOrDefaultAsync(u => u.AtomicNumber == id);
+            if (elementFromDb == null)
             {
                 return Json(new { success = false, message = "Error while Deleting" });
             }
-            _db.Book.Remove(bookFromDb);
+            _db.Element.Remove(elementFromDb);
             await _db.SaveChangesAsync();
             return Json(new { success = true, message = "Delete successful" });
         }
