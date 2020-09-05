@@ -1,25 +1,25 @@
 ﻿@page
-@model PeriodicTable.IndexModel
+@*@model PeriodicTable.IndexModel*@
 @*@{
         ViewData["Title"] = "Index";
     }*@
 
 @*<h1>Index Book</h1>*@
 
-<br />
+@*<br />
 <div class="container row p-0 m-0">
     <div class="col-9">
         <h2 class="text-info">Book list</h2>
     </div>
     <div class="col-3">
         <a asp-page="Upsert" class="btn btn-info form-control text-white">Create New Book</a>
-    </div>
+    </div>*@
 
 
 
 
 
-    <div class="col-12 border p-3 mt-3">
+    @*<div class="col-12 border p-3 mt-3">
         <form method="post">
             @if (Model.Books.Count() > 0)
             {
@@ -29,7 +29,7 @@
                             <label asp-for="Books.FirstOrDefault().Name"></label>
                         </th>
                         <th>
-                            @*@Html.DisplayNameFor(m=>m.Books.FirstOrDefault().Author)*@
+                            @Html.DisplayNameFor(m=>m.Books.FirstOrDefault().Author)
                             <label asp-for="Books.FirstOrDefault().Author"></label>
                         </th>
                         <th>
@@ -41,21 +41,21 @@
                     </tr>
                     @foreach (var item in Model.Books)
                     {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(m => item.Name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.Author)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(m => item.ISBN)
-                    </td>
-                    <td>
-                        <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete?')"class="btn btn-danger btn-sm">Delete</button>
-                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
-                    </td>
-                </tr>
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.Author)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m => item.ISBN)
+                            </td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button>
+                                <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                            </td>
+                        </tr>
                     }
                 </table>
             }
@@ -84,6 +84,6 @@
         </table>
     </div>
 </div>
-@section Scripts{ 
+@section Scripts{
     <script src="~/js/bookList.js"></script>
-}
+}*@

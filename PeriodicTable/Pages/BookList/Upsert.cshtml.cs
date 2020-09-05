@@ -1,64 +1,64 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using PeriodicTable.Model;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Threading.Tasks;
+//using Microsoft.AspNetCore.Mvc;
+//using Microsoft.AspNetCore.Mvc.RazorPages;
+//using Microsoft.EntityFrameworkCore;
+//using PeriodicTable.Model;
 
-namespace PeriodicTable
-{
-    public class UpsertModel : PageModel
-    {
+//namespace PeriodicTable
+//{
+//    public class UpsertModel : PageModel
+//    {
 
-        private ApplicationDbContext _db;
+//        private ApplicationDbContext _db;
 
-        public UpsertModel(ApplicationDbContext db)
-        {
-            _db = db;
-        }
+//        public UpsertModel(ApplicationDbContext db)
+//        {
+//            _db = db;
+//        }
 
-        [BindProperty]
+//        [BindProperty]
 
-        public Book Book { get; set; }
-        public async Task<IActionResult> OnGet(int? id)
-        {
-            Book = new Book();
-            if(id == null)
-            {
-                // create
-                return Page();
-            }
+//        public Book Book { get; set; }
+//        public async Task<IActionResult> OnGet(int? id)
+//        {
+//            Book = new Book();
+//            if(id == null)
+//            {
+//                // create
+//                return Page();
+//            }
 
-            // update
-            Book = await _db.Book.FirstOrDefaultAsync(u => u.Id == id);
-            if(Book == null)
-            {
-                return NotFound();
-            }
-            return Page();
-        }
+//            // update
+//            Book = await _db.Book.FirstOrDefaultAsync(u => u.Id == id);
+//            if(Book == null)
+//            {
+//                return NotFound();
+//            }
+//            return Page();
+//        }
 
-        public async Task<IActionResult> OnPost()
-        {
-            if (ModelState.IsValid)
-            {
-                if(Book.Id == 0)
-                {
-                    _db.Book.Add(Book);
-                } else
-                {
-                    _db.Book.Update(Book);
-                }
+//        public async Task<IActionResult> OnPost()
+//        {
+//            if (ModelState.IsValid)
+//            {
+//                if(Book.Id == 0)
+//                {
+//                    _db.Book.Add(Book);
+//                } else
+//                {
+//                    _db.Book.Update(Book);
+//                }
 
-                await _db.SaveChangesAsync().ConfigureAwait(true);
+//                await _db.SaveChangesAsync().ConfigureAwait(true);
 
-                return RedirectToPage("Index");
-            }
+//                return RedirectToPage("Index");
+//            }
 
-            return RedirectToPage();
-        }
+//            return RedirectToPage();
+//        }
 
-    }
-}
+//    }
+//}

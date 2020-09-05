@@ -9,6 +9,9 @@ namespace PeriodicTable.Model
     public class Element
     {
         [Key]
+        public int id { get; set; }
+
+        [Required]
         public int AtomicNumber { get; set; }
 
         [Required]
@@ -16,6 +19,18 @@ namespace PeriodicTable.Model
 
         [Required]
         public string Symbol { get; set; }
+
+        public string Link { get; set; }
+        
+        [Required]
+        public float AtomicWeight { get; set; }
+
+        [Required]
+        public int MolarMass { get; set; }
+
+        public string Color { get; set; }
+
+
 
     }
 }

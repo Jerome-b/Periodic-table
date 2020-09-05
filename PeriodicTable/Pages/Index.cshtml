@@ -4,9 +4,288 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome Test</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+@*<div class="text-center">
+        <h1 class="display-4">Welcome Test</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+<br />
+<div class="container row p-0 m-2">
+    <div class="col-9">
+        <h2 class="text-info">Periodic table</h2>
+    </div>
+
+    <div class="p-2 mt-2">
+        @*<form method="post">
+                    @if (Model.Elements.Count() > 0)
+                    {
+                        <table class="table table-striped border">
+                            <tr class="table-secondary">
+                                <th>
+                                    <label>Atomic Number</label>
+                                    <label asp-for="Elements.FirstOrDefault().AtomicNumber"></label>
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(m => m.Elements.FirstOrDefault().Name)
+                                    <label asp-for="Elements.FirstOrDefault().Name"></label>
+                                </th>
+                                <th>
+                                    <label asp-for="Elements.FirstOrDefault().Symbol"></label>
+                                </th>
+                            </tr>
+                            @foreach (var item in Model.Elements)
+                            {
+                                @if (item.AtomicNumber == 2)
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(m => item.AtomicNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.Symbol)
+                                        </td>
+                                    </tr>
+                                }
+                                else
+                                {
+                                    <tr>
+                                        <td>
+                                            @Html.DisplayFor(m => item.AtomicNumber)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.Name)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(m => item.Symbol)
+                                        </td>
+                                    </tr>
+                                    <td>
+                                            <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-sm">Delete</button>
+                                            <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                                        </td>
+
+                                }}
+                        </table>
+                    }
+                    else
+                    {
+                        <p>No Elements available</p>
+                    }
+                </form>
+            </div>*@
+        <table class="table table-bordered">
+            <tr>
+                <th style="border:hidden"></th>
+                <th>1<br /><div style="font-size: 12px">Alkali metals</div></th>
+                <th>2<br /><div style="font-size: 12px">Alkaline earth metals</div></th>
+                <th>3</th>
+                <th>4</th>
+                <th>5</th>
+                <th>6</th>
+                <th>7</th>
+                <th>8</th>
+                <th>9</th>
+                <th>10</th>
+                <th>11<br /><div style="font-size: 12px">Coinage metals</div></th>
+                <th>12</th>
+                <th>13<br /><div style="font-size: 12px">Triels</div></th>
+                <th>14<br /><div style="font-size: 12px">Tetrels</div></th>
+                <th>15<br /><div style="font-size: 12px">Pnictogens</div></th>
+                <th>16<br /><div style="font-size: 12px">Chalcogens</div></th>
+                <th>17<br /><div style="font-size: 12px">Halogens</div></th>
+                <th>18<br /><div style="font-size: 12px">Noble gases</div></th>
+            </tr>
+            <!------------------- Period 1 -------------------->
+
+            <tr>
+                <th style="vertical-align:middle">1</th>
+
+
+                @for (int i = 0; i < 2; i++)
+                {
+                    if (i == 1)
+                    {
+                        <td colspan="16" style="border:hidden">&nbsp;</td>
+                        <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                            data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                            <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                        </td>
+                    }
+                    else
+                    {
+                        <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                            data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                            <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                        </td>
+                    }
+                }
+
+            </tr>
+            <!------------------- Period 2 -------------------->
+            <tr>
+                <th style="vertical-align:middle">2</th>
+                @for (int i = 2; i < 10; i++)
+                {
+                    if (i == 2)
+                    {
+                        <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                            data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                            <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                        </td>
+                    }
+                    else if (i == 4)
+                    {
+                        <td colspan="10" style="border:hidden; background-color: white">&nbsp;</td>
+
+                        <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                            data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                            <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                        </td>
+                    }
+                    else
+                    {
+                        <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                            data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                            <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                        </td>
+                    }
+                }
+            </tr>
+            <!------------------- Period 3 -------------------->
+            <tr>
+                <th style="vertical-align:middle">3</th>
+                @for (int i = 10; i < 18; i++)
+                {
+
+                    if (i == 12)
+                    {
+                        <td colspan="10" style="border:hidden">&nbsp;</td>
+                        <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                            data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                            <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                        </td>
+                    }
+                    else
+                    {
+                        <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                            data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                            <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                        </td>
+                    }
+                }
+            </tr>
+            <!------------------- Period 4 -------------------->
+            <tr>
+                <th style="vertical-align:middle">4</th>
+                @for (int i = 18; i < 36; i++)
+                {
+                    <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                        data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                        <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                    </td>
+                }
+            </tr>
+            <!------------------- Period 5 -------------------->
+            <tr>
+                <th style="vertical-align:middle">5</th>
+                @for (int i = 36; i < 54; i++)
+                {
+                    <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                        data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                        <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                    </td>
+                }
+            </tr>
+            <!------------------- Period 6 -------------------->
+            <tr>
+                <th style="vertical-align:middle">6</th>
+                @for (int i = 54; i < 57; i++)
+                {
+                    <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                        data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                        <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                    </td>
+                }
+                @for (int i = 71; i < 86; i++)
+                {
+                    <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                        data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                        <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                    </td>
+                }
+            </tr>
+            <!------------------- Period 7 -------------------->
+            <tr>
+                <th style="vertical-align:middle">7</th>
+                @for (int i = 86; i < 89; i++)
+                {
+                    <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                        data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                        <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                    </td>
+                }
+                @for (int i = 103; i < 118; i++)
+                {
+                    <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                        data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                        <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                    </td>
+                }
+            </tr>
+            <!------------------- Period ? -------------------->
+            <tr>
+                <td colspan="3" style="border:hidden; background-color: white">&nbsp;</td>
+                @for (int i = 57; i < 71; i++)
+                {
+                    <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                        data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                        <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                    </td>
+                }
+                <td style="border:hidden; background-color: white">&nbsp;</td>
+            </tr>
+            <!------------------- Period ? -------------------->
+            <tr>
+                <td colspan="3" style="border:hidden">&nbsp;</td>
+                @for (int i = 89; i < 103; i++)
+                {
+                    <td tabindex="0" data-toggle="popover" style="background-color: @Html.DisplayFor(m => Model.Elements[i].Color)"
+                        data-content="<b>@Html.DisplayFor(m => Model.Elements[i].Name)</b><br /><a href='@Html.DisplayFor(m => Model.Elements[i].Link)'>@Html.DisplayFor(m => Model.Elements[i].Link)</a><br />Atomic Weight: A<sub>r, standard</sub>(<sub>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)</sub>@Html.DisplayFor(m => Model.Elements[i].Symbol)) = @Html.DisplayFor(m => Model.Elements[i].AtomicWeight)">
+                        <b>@Html.DisplayFor(m => Model.Elements[i].AtomicNumber)<br />@Html.DisplayFor(m => Model.Elements[i].Symbol)</b>
+                    </td>
+                }
+                <td style="border:hidden">&nbsp;</td>
+            </tr>
+            <!------------------------------------------------>
+
+
+        </table>
+        <ul class="legend">
+            <li><span class="nonmetal"></span>&nbsp;Nonmetal</li>
+            <li><span class="alkali"></span>&nbsp;Alkali Metal</li>
+            <li><span class="alkaline"></span>&nbsp;Alkaline Earth Metal</li>
+            <li><span class="transition"></span>&nbsp;Transition Metal</li>
+            <li><span class="lanthanide"></span>&nbsp;Lanthanide</li>
+            <li><span class="actinide"></span>&nbsp;Actinide</li>
+            <li><span class="posttransition"></span>&nbsp;Post-transition Metal</li>
+            <li><span class="metalloid"></span>&nbsp;Metalloid</li>
+            <li style="padding-left: 3px"><span class="noble" ></span>&nbsp;Noble Gas</li>
+        </ul>
+    </div>
 </div>
 
-<div style="width:500px;height:100px;border:1px solid #000;">This is a rectangle!</div>
+
+@section Styles{
+    <link href="~/css/table.css" rel="stylesheet">
+}
+
+@section Scripts{
+    <script src="~/js/popover.js"></script>
+}
+
+@*@section Scripts{
+        <script src="~/js/invertTable.js"></script>
+    }*@

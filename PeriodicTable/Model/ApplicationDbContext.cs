@@ -13,6 +13,6 @@ namespace PeriodicTable.Model
 
         }
 
-        public DbSet<Book> Book { get; set; }
+        public DbSet<Element> Element { get; set; }
     }
 }
